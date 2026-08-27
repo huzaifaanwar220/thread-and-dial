@@ -3,7 +3,6 @@
    COMPLETE JAVASCRIPT
 ===================================================== */
 
-
 /* =====================================================
    PRODUCTS
 ===================================================== */
@@ -18,7 +17,8 @@ const products = [
         category: "clothing",
         type: "t-shirts",
         price: 2499,
-        image: "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg"
+        image: "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg",
+        description: "A premium black t-shirt with a clean and versatile design, perfect for everyday wear."
     },
 
     {
@@ -27,7 +27,8 @@ const products = [
         category: "clothing",
         type: "t-shirts",
         price: 2299,
-        image: "https://images.pexels.com/photos/18257675/pexels-photo-18257675.jpeg"
+        image: "https://images.pexels.com/photos/18257675/pexels-photo-18257675.jpeg",
+        description: "A classic white t-shirt designed with a minimal look for effortless everyday style."
     },
 
     {
@@ -36,7 +37,8 @@ const products = [
         category: "clothing",
         type: "shirts",
         price: 3999,
-        image: "https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=900&q=85"
+        image: "https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=900&q=85",
+        description: "A timeless Oxford shirt that combines smart styling with comfortable everyday wear."
     },
 
     {
@@ -45,7 +47,8 @@ const products = [
         category: "clothing",
         type: "shirts",
         price: 4299,
-        image: "https://images.pexels.com/photos/11546650/pexels-photo-11546650.jpeg"
+        image: "https://images.pexels.com/photos/11546650/pexels-photo-11546650.jpeg",
+        description: "A refined casual shirt designed for modern men's everyday lifestyle."
     },
 
     {
@@ -54,7 +57,8 @@ const products = [
         category: "clothing",
         type: "hoodies",
         price: 4999,
-        image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=85"
+        image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=85",
+        description: "A comfortable grey hoodie with a modern relaxed fit for casual everyday outfits."
     },
 
     {
@@ -63,7 +67,8 @@ const products = [
         category: "clothing",
         type: "hoodies",
         price: 5299,
-        image: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=85"
+        image: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=85",
+        description: "A versatile black hoodie with a clean minimalist appearance and comfortable feel."
     },
 
     {
@@ -72,7 +77,8 @@ const products = [
         category: "clothing",
         type: "pants",
         price: 4499,
-        image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=900&q=85"
+        image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=900&q=85",
+        description: "Modern relaxed-fit pants designed for comfort, movement and contemporary style."
     },
 
 
@@ -84,7 +90,8 @@ const products = [
         category: "watches",
         type: "classic",
         price: 8999,
-        image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=900&q=85"
+        image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=900&q=85",
+        description: "A sophisticated steel watch with a timeless design suitable for both casual and formal occasions."
     },
 
     {
@@ -93,7 +100,8 @@ const products = [
         category: "watches",
         type: "minimal",
         price: 7499,
-        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85"
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85",
+        description: "A minimalist black watch designed for a clean, modern and understated look."
     },
 
     {
@@ -102,7 +110,8 @@ const products = [
         category: "watches",
         type: "sport",
         price: 9999,
-        image: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=900&q=85"
+        image: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=900&q=85",
+        description: "A bold sport chronograph watch combining a dynamic appearance with modern functionality."
     },
 
     {
@@ -111,7 +120,8 @@ const products = [
         category: "watches",
         type: "luxury",
         price: 14999,
-        image: "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=900&q=85"
+        image: "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=900&q=85",
+        description: "A premium silver watch created for an elegant and sophisticated men's lifestyle."
     }
 
 ];
@@ -249,6 +259,10 @@ function createProductCard(product) {
                 <h3>
                     ${product.name}
                 </h3>
+
+                <p class="product-description">
+                    ${product.description}
+                </p>
 
                 <strong>
                     ${formatPrice(product.price)}
