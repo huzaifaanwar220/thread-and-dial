@@ -1238,3 +1238,211 @@ displayClothing();
 displayWatches();
 
 updateCart();
+/* =====================================================
+   PRODUCT DETAILS MODAL
+===================================================== */
+
+const productModal =
+    document.getElementById("productModal");
+
+const closeProductModal =
+    document.getElementById("closeProductModal");
+
+const modalProductImage =
+    document.getElementById("modalProductImage");
+
+const modalProductCategory =
+    document.getElementById("modalProductCategory");
+
+const modalProductName =
+    document.getElementById("modalProductName");
+
+const modalProductDescription =
+    document.getElementById("modalProductDescription");
+
+const modalProductPrice =
+    document.getElementById("modalProductPrice");
+
+const modalAddToCart =
+    document.getElementById("modalAddToCart");
+
+let selectedProductId = null;
+
+
+/* =====================================================
+   OPEN PRODUCT DETAILS
+===================================================== */
+
+function openProductDetails(productId) {
+
+    const product =
+        products.find(function(product) {
+
+            return product.id === productId;
+
+        });
+
+
+    if (!product) {
+        return;
+    }
+
+
+    selectedProductId = product.id;
+
+
+    modalProductImage.src = product.image;
+
+    modalProductImage.alt = product.name;
+
+    modalProductCategory.textContent =
+        product.type;
+
+    modalProductName.textContent =
+        product.name;
+
+    modalProductDescription.textContent =
+        product.description;
+
+    modalProductPrice.textContent =
+        formatPrice(product.price);
+
+
+    productModal.classList.add("show");
+
+    document.body.classList.add("no-scroll");
+
+}
+
+
+/* =====================================================
+   CLOSE PRODUCT DETAILS
+===================================================== */
+
+function closeProductDetails() {
+
+    productModal.classList.remove("show");
+
+    document.body.classList.remove("no-scroll");
+
+    selectedProductId = null;
+
+}
+
+
+/* =====================================================
+   CLICK PRODUCT CARD
+===================================================== */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        const productCard =
+            event.target.closest(".product-card");
+
+
+        if (
+            productCard &&
+            !event.target.closest(".product-add-btn")
+        ) {
+
+            const addButton =
+                productCard.querySelector(
+                    ".product-add-btn"
+                );
+
+
+            if (addButton) {
+
+                const productId =
+                    Number(
+                        addButton
+                            .getAttribute("onclick")
+                            .match(/\d+/)[0]
+                    );
+
+
+                openProductDetails(productId);
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   ADD TO CART FROM MODAL
+===================================================== */
+
+modalAddToCart.addEventListener(
+    "click",
+    function() {
+
+        if (!selectedProductId) {
+            return;
+        }
+
+
+        addToCart(selectedProductId);
+
+        closeProductDetails();
+
+    }
+);
+
+
+/* =====================================================
+   CLOSE BUTTON
+===================================================== */
+
+closeProductModal.addEventListener(
+    "click",
+    function() {
+
+        closeProductDetails();
+
+    }
+);
+
+
+/* =====================================================
+   CLOSE WHEN CLICKING OUTSIDE
+===================================================== */
+
+productModal.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target === productModal
+        ) {
+
+            closeProductDetails();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   ESCAPE KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeProductDetails();
+
+        }
+
+    }
+);
