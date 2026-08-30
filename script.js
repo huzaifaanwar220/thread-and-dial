@@ -1,6 +1,6 @@
 /* =====================================================
    THREAD & DIAL
-   FINAL JAVASCRIPT
+   COMPLETE PROFESSIONAL JAVASCRIPT
 ===================================================== */
 
 
@@ -18,14 +18,13 @@ const products = [
         category: "clothing",
         type: "t-shirts",
         price: 2499,
-        stock: "in-stock",
-        badge: "NEW",
-        description:
-            "A clean everyday black t-shirt made for effortless modern style.",
+        color: "Black",
         sizes: ["S", "M", "L", "XL"],
-        colors: ["Black", "White"],
+        stock: 12,
+        description:
+            "A clean and versatile black t-shirt designed for everyday comfort and effortless style.",
         image:
-            "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=900"
+            "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg"
     },
 
     {
@@ -34,14 +33,13 @@ const products = [
         category: "clothing",
         type: "t-shirts",
         price: 2299,
-        stock: "in-stock",
-        badge: "BEST SELLER",
-        description:
-            "A versatile premium white t-shirt with a timeless minimalist look.",
+        color: "White",
         sizes: ["S", "M", "L", "XL"],
-        colors: ["White", "Black"],
+        stock: 15,
+        description:
+            "A premium white essential with a clean silhouette for modern everyday dressing.",
         image:
-            "https://images.pexels.com/photos/18257675/pexels-photo-18257675.jpeg?auto=compress&cs=tinysrgb&w=900"
+            "https://images.pexels.com/photos/18257675/pexels-photo-18257675.jpeg"
     },
 
     {
@@ -50,12 +48,11 @@ const products = [
         category: "clothing",
         type: "shirts",
         price: 3999,
-        stock: "limited",
-        badge: "LIMITED",
+        color: "Blue",
+        sizes: ["M", "L", "XL"],
+        stock: 8,
         description:
-            "A refined Oxford shirt designed for smart casual everyday wear.",
-        sizes: ["S", "M", "L", "XL"],
-        colors: ["White", "Blue"],
+            "A timeless Oxford shirt with a refined look that works for both casual and smart occasions.",
         image:
             "https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=900&q=85"
     },
@@ -66,14 +63,13 @@ const products = [
         category: "clothing",
         type: "shirts",
         price: 4299,
-        stock: "in-stock",
-        badge: "NEW",
+        color: "Beige",
+        sizes: ["S", "M", "L", "XL"],
+        stock: 10,
         description:
-            "A modern casual shirt combining comfort with a polished silhouette.",
-        sizes: ["M", "L", "XL"],
-        colors: ["Black", "Grey"],
+            "A modern casual shirt crafted for relaxed styling and everyday comfort.",
         image:
-            "https://images.pexels.com/photos/11546650/pexels-photo-11546650.jpeg?auto=compress&cs=tinysrgb&w=900"
+            "https://images.pexels.com/photos/11546650/pexels-photo-11546650.jpeg"
     },
 
     {
@@ -82,12 +78,11 @@ const products = [
         category: "clothing",
         type: "hoodies",
         price: 4999,
-        stock: "in-stock",
-        badge: "BEST SELLER",
-        description:
-            "A comfortable grey hoodie designed for relaxed everyday outfits.",
+        color: "Grey",
         sizes: ["S", "M", "L", "XL"],
-        colors: ["Grey", "Black"],
+        stock: 7,
+        description:
+            "A comfortable grey hoodie with a minimal design and relaxed modern fit.",
         image:
             "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=85"
     },
@@ -98,12 +93,11 @@ const products = [
         category: "clothing",
         type: "hoodies",
         price: 5299,
-        stock: "limited",
-        badge: "LIMITED",
-        description:
-            "A premium black hoodie with a clean and understated aesthetic.",
+        color: "Black",
         sizes: ["M", "L", "XL"],
-        colors: ["Black", "Grey"],
+        stock: 6,
+        description:
+            "A premium black hoodie designed for a clean and effortless streetwear look.",
         image:
             "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=85"
     },
@@ -114,12 +108,11 @@ const products = [
         category: "clothing",
         type: "pants",
         price: 4499,
-        stock: "in-stock",
-        badge: "",
+        color: "Black",
+        sizes: ["M", "L", "XL"],
+        stock: 9,
         description:
-            "Relaxed modern pants designed to pair easily with everyday essentials.",
-        sizes: ["S", "M", "L", "XL"],
-        colors: ["Black", "Beige"],
+            "Relaxed modern pants with a versatile silhouette for everyday styling.",
         image:
             "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=900&q=85"
     },
@@ -133,12 +126,11 @@ const products = [
         category: "watches",
         type: "classic",
         price: 8999,
-        stock: "in-stock",
-        badge: "BEST SELLER",
-        description:
-            "A classic steel watch with a refined design for everyday wear.",
+        color: "Silver",
         sizes: ["One Size"],
-        colors: ["Silver", "Black"],
+        stock: 5,
+        description:
+            "A refined steel watch with a timeless design suitable for everyday and formal wear.",
         image:
             "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=900&q=85"
     },
@@ -149,12 +141,11 @@ const products = [
         category: "watches",
         type: "minimal",
         price: 7499,
-        stock: "in-stock",
-        badge: "NEW",
-        description:
-            "A minimalist black watch created for clean and confident looks.",
+        color: "Black",
         sizes: ["One Size"],
-        colors: ["Black"],
+        stock: 8,
+        description:
+            "A minimal black watch designed for understated and modern style.",
         image:
             "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85"
     },
@@ -165,12 +156,11 @@ const products = [
         category: "watches",
         type: "sport",
         price: 9999,
-        stock: "limited",
-        badge: "LIMITED",
-        description:
-            "A bold sport chronograph designed for active modern lifestyles.",
+        color: "Black",
         sizes: ["One Size"],
-        colors: ["Black", "Silver"],
+        stock: 4,
+        description:
+            "A sporty chronograph watch combining bold details with everyday functionality.",
         image:
             "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=900&q=85"
     },
@@ -181,12 +171,11 @@ const products = [
         category: "watches",
         type: "luxury",
         price: 14999,
-        stock: "in-stock",
-        badge: "PREMIUM",
-        description:
-            "A sophisticated silver watch designed to elevate formal looks.",
+        color: "Silver",
         sizes: ["One Size"],
-        colors: ["Silver"],
+        stock: 3,
+        description:
+            "A premium silver watch designed to add a sophisticated touch to your look.",
         image:
             "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=900&q=85"
     }
@@ -206,64 +195,43 @@ const CART_STORAGE_KEY = "threadDialCart";
 
 
 /* =====================================================
-   STATE
+   CART
 ===================================================== */
 
-let cart = [];
-
-let currentProduct = null;
-
-let selectedSize = "";
-
-let selectedColor = "";
-
-let currentClothingFilter = "all";
-
-let currentWatchFilter = "all";
+let cart =
+    JSON.parse(
+        localStorage.getItem(CART_STORAGE_KEY)
+    ) || [];
 
 
 /* =====================================================
-   LOAD CART FROM LOCAL STORAGE
+   CURRENT PRODUCT
 ===================================================== */
 
-function loadCart() {
-
-    try {
-
-        const savedCart =
-            localStorage.getItem(CART_STORAGE_KEY);
-
-        if (savedCart) {
-
-            cart = JSON.parse(savedCart);
-
-        }
-
-    } catch (error) {
-
-        cart = [];
-
-    }
-
-}
+let currentModalProductId = null;
 
 
 /* =====================================================
-   SAVE CART
+   CURRENT FILTERS
 ===================================================== */
 
-function saveCart() {
+let clothingFilter = "all";
 
-    localStorage.setItem(
-        CART_STORAGE_KEY,
-        JSON.stringify(cart)
-    );
+let watchFilter = "all";
 
-}
+let selectedColor = "all";
+
+let selectedSize = "all";
+
+let stockFilter = "all";
+
+let searchQuery = "";
+
+let sortOption = "default";
 
 
 /* =====================================================
-   DOM
+   DOM ELEMENTS
 ===================================================== */
 
 const clothingGrid =
@@ -353,32 +321,8 @@ const modalProductDescription =
 const modalProductPrice =
     document.getElementById("modalProductPrice");
 
-const modalProductStock =
-    document.getElementById("modalProductStock");
-
-const modalSizes =
-    document.getElementById("modalSizes");
-
-const modalColors =
-    document.getElementById("modalColors");
-
-const modalSizeContainer =
-    document.getElementById("modalSizeContainer");
-
-const modalColorContainer =
-    document.getElementById("modalColorContainer");
-
 const modalAddToCart =
     document.getElementById("modalAddToCart");
-
-
-/* SEARCH */
-
-const productSearch =
-    document.getElementById("productSearch");
-
-const productSort =
-    document.getElementById("productSort");
 
 
 /* =====================================================
@@ -387,42 +331,41 @@ const productSort =
 
 function formatPrice(price) {
 
-    return "RS:" + price.toLocaleString();
+    return "RS:" + Number(price).toLocaleString();
 
 }
 
 
 /* =====================================================
-   STOCK TEXT
+   SAVE CART
 ===================================================== */
 
-function getStockText(stock) {
+function saveCart() {
 
-    if (stock === "in-stock") {
-
-        return "In Stock";
-
-    }
-
-    if (stock === "limited") {
-
-        return "Limited Stock";
-
-    }
-
-    return "Out of Stock";
+    localStorage.setItem(
+        CART_STORAGE_KEY,
+        JSON.stringify(cart)
+    );
 
 }
 
 
 /* =====================================================
-   CREATE PRODUCT CARD
+   PRODUCT CARD
 ===================================================== */
 
 function createProductCard(product) {
 
-    const isOutOfStock =
-        product.stock === "out";
+    const outOfStock =
+        product.stock <= 0;
+
+    const stockText =
+        outOfStock
+            ? "Out of Stock"
+            : product.stock <= 5
+                ? `Only ${product.stock} left`
+                : "In Stock";
+
 
     return `
 
@@ -433,41 +376,22 @@ function createProductCard(product) {
 
             <div class="product-image">
 
-                ${
-                    product.badge
-                        ? `
-                            <span class="product-badge">
-                                ${product.badge}
-                            </span>
-                        `
-                        : ""
-                }
-
                 <img
                     src="${product.image}"
                     alt="${product.name}"
                     loading="lazy"
-                    onerror="this.src='https://placehold.co/900x1100?text=THREAD+%26+DIAL'"
                 >
+
+                <span class="product-stock-badge">
+                    ${stockText}
+                </span>
 
                 <button
-                    class="product-add-btn ${
-                        isOutOfStock ? "disabled" : ""
-                    }"
-                    onclick="event.stopPropagation(); ${
-                        isOutOfStock
-                            ? ""
-                            : `quickAddToCart(${product.id})`
-                    }"
-                    ${isOutOfStock ? "disabled" : ""}
+                    class="product-add-btn"
+                    onclick="event.stopPropagation(); addToCart(${product.id})"
+                    ${outOfStock ? "disabled" : ""}
                 >
-
-                    ${
-                        isOutOfStock
-                            ? "Out of Stock"
-                            : "Add to Cart"
-                    }
-
+                    ${outOfStock ? "Out of Stock" : "Add to Cart"}
                 </button>
 
             </div>
@@ -487,25 +411,9 @@ function createProductCard(product) {
                     ${product.description}
                 </p>
 
-                <div class="product-price-row">
-
-                    <strong>
-                        ${formatPrice(product.price)}
-                    </strong>
-
-                    <span
-                        class="stock-text ${
-                            product.stock === "limited"
-                                ? "limited"
-                                : product.stock === "out"
-                                    ? "out-stock"
-                                    : "in-stock"
-                        }"
-                    >
-                        ${getStockText(product.stock)}
-                    </span>
-
-                </div>
+                <strong>
+                    ${formatPrice(product.price)}
+                </strong>
 
             </div>
 
@@ -517,88 +425,191 @@ function createProductCard(product) {
 
 
 /* =====================================================
-   GET FILTERED PRODUCTS
+   FILTER PRODUCTS
 ===================================================== */
 
-function getFilteredProducts(category, filter) {
+function filterProducts(category) {
 
-    const searchText =
-        productSearch.value
-            .toLowerCase()
-            .trim();
+    return products.filter(function(product) {
 
-    let result =
-        products.filter(function(product) {
-
-            const matchesCategory =
-                product.category === category;
-
-            const matchesFilter =
-                filter === "all" ||
-                product.type === filter;
-
-            const matchesSearch =
-                product.name
-                    .toLowerCase()
-                    .includes(searchText) ||
-
-                product.description
-                    .toLowerCase()
-                    .includes(searchText) ||
-
-                product.type
-                    .toLowerCase()
-                    .includes(searchText);
-
-            return (
-                matchesCategory &&
-                matchesFilter &&
-                matchesSearch
-            );
-
-        });
+        if (product.category !== category) {
+            return false;
+        }
 
 
-    /* SORT */
+        /* TYPE FILTER */
 
-    if (productSort.value === "low-high") {
+        if (category === "clothing") {
 
-        result.sort(function(a, b) {
+            if (
+                clothingFilter !== "all" &&
+                product.type !== clothingFilter
+            ) {
+                return false;
+            }
 
-            return a.price - b.price;
-
-        });
-
-    }
-
-
-    if (productSort.value === "high-low") {
-
-        result.sort(function(a, b) {
-
-            return b.price - a.price;
-
-        });
-
-    }
+        }
 
 
-    return result;
+        if (category === "watches") {
+
+            if (
+                watchFilter !== "all" &&
+                product.type !== watchFilter
+            ) {
+                return false;
+            }
+
+        }
+
+
+        /* COLOR */
+
+        if (
+            selectedColor !== "all" &&
+            product.color !== selectedColor
+        ) {
+            return false;
+        }
+
+
+        /* SIZE */
+
+        if (
+            selectedSize !== "all" &&
+            !product.sizes.includes(selectedSize)
+        ) {
+            return false;
+        }
+
+
+        /* STOCK */
+
+        if (
+            stockFilter === "in-stock" &&
+            product.stock <= 0
+        ) {
+            return false;
+        }
+
+
+        if (
+            stockFilter === "low-stock" &&
+            (
+                product.stock <= 0 ||
+                product.stock > 5
+            )
+        ) {
+            return false;
+        }
+
+
+        /* SEARCH */
+
+        if (searchQuery) {
+
+            const searchText =
+                (
+                    product.name +
+                    " " +
+                    product.category +
+                    " " +
+                    product.type +
+                    " " +
+                    product.color
+                ).toLowerCase();
+
+
+            if (
+                !searchText.includes(
+                    searchQuery.toLowerCase()
+                )
+            ) {
+                return false;
+            }
+
+        }
+
+
+        return true;
+
+    });
 
 }
 
 
 /* =====================================================
-   DISPLAY CLOTHING
+   SORT PRODUCTS
+===================================================== */
+
+function sortProducts(productList) {
+
+    const sorted =
+        [...productList];
+
+
+    if (sortOption === "price-low") {
+
+        sorted.sort(
+            (a, b) =>
+                a.price - b.price
+        );
+
+    }
+
+
+    if (sortOption === "price-high") {
+
+        sorted.sort(
+            (a, b) =>
+                b.price - a.price
+        );
+
+    }
+
+
+    if (sortOption === "name-az") {
+
+        sorted.sort(
+            (a, b) =>
+                a.name.localeCompare(b.name)
+        );
+
+    }
+
+
+    if (sortOption === "name-za") {
+
+        sorted.sort(
+            (a, b) =>
+                b.name.localeCompare(a.name)
+        );
+
+    }
+
+
+    return sorted;
+
+}
+
+
+/* =====================================================
+   DISPLAY PRODUCTS
 ===================================================== */
 
 function displayClothing() {
 
-    const filtered =
-        getFilteredProducts(
-            "clothing",
-            currentClothingFilter
-        );
+    if (!clothingGrid) {
+        return;
+    }
+
+
+    let filtered =
+        filterProducts("clothing");
+
+
+    filtered =
+        sortProducts(filtered);
 
 
     clothingGrid.innerHTML = "";
@@ -608,16 +619,8 @@ function displayClothing() {
 
         clothingGrid.innerHTML = `
 
-            <div class="cart-empty">
-
-                <h3>
-                    No products found
-                </h3>
-
-                <p>
-                    Try another search or category.
-                </p>
-
+            <div class="no-products">
+                No products found.
             </div>
 
         `;
@@ -637,17 +640,19 @@ function displayClothing() {
 }
 
 
-/* =====================================================
-   DISPLAY WATCHES
-===================================================== */
-
 function displayWatches() {
 
-    const filtered =
-        getFilteredProducts(
-            "watches",
-            currentWatchFilter
-        );
+    if (!watchesGrid) {
+        return;
+    }
+
+
+    let filtered =
+        filterProducts("watches");
+
+
+    filtered =
+        sortProducts(filtered);
 
 
     watchesGrid.innerHTML = "";
@@ -657,16 +662,8 @@ function displayWatches() {
 
         watchesGrid.innerHTML = `
 
-            <div class="cart-empty">
-
-                <h3>
-                    No products found
-                </h3>
-
-                <p>
-                    Try another search or category.
-                </p>
-
+            <div class="no-products">
+                No products found.
             </div>
 
         `;
@@ -700,10 +697,10 @@ function refreshProducts() {
 
 
 /* =====================================================
-   QUICK ADD
+   ADD TO CART
 ===================================================== */
 
-function quickAddToCart(productId) {
+function addToCart(productId) {
 
     const product =
         products.find(function(product) {
@@ -718,49 +715,11 @@ function quickAddToCart(productId) {
     }
 
 
-    if (product.stock === "out") {
+    if (product.stock <= 0) {
 
-        return;
-
-    }
-
-
-    let size =
-        product.sizes &&
-        product.sizes.length
-            ? product.sizes[0]
-            : "One Size";
-
-
-    let color =
-        product.colors &&
-        product.colors.length
-            ? product.colors[0]
-            : "Default";
-
-
-    addProductToCart(
-        product,
-        size,
-        color
-    );
-
-}
-
-
-/* =====================================================
-   ADD PRODUCT TO CART
-===================================================== */
-
-function addProductToCart(
-    product,
-    size,
-    color
-) {
-
-    if (product.stock === "out") {
-
-        alert("This product is out of stock.");
+        alert(
+            "Sorry, this product is out of stock."
+        );
 
         return;
 
@@ -770,16 +729,26 @@ function addProductToCart(
     const existing =
         cart.find(function(item) {
 
-            return (
-                item.id === product.id &&
-                item.size === size &&
-                item.color === color
-            );
+            return item.id === productId;
 
         });
 
 
     if (existing) {
+
+        if (
+            existing.quantity >=
+            product.stock
+        ) {
+
+            alert(
+                `Only ${product.stock} item(s) available.`
+            );
+
+            return;
+
+        }
+
 
         existing.quantity++;
 
@@ -794,10 +763,6 @@ function addProductToCart(
             price: product.price,
 
             image: product.image,
-
-            size: size,
-
-            color: color,
 
             quantity: 1
 
@@ -831,7 +796,12 @@ function updateCart() {
     });
 
 
-    cartCount.textContent = quantity;
+    if (cartCount) {
+
+        cartCount.textContent =
+            quantity;
+
+    }
 
 
     renderCart();
@@ -846,6 +816,11 @@ function updateCart() {
 ===================================================== */
 
 function renderCart() {
+
+    if (!cartItems) {
+        return;
+    }
+
 
     cartItems.innerHTML = "";
 
@@ -868,7 +843,13 @@ function renderCart() {
 
         `;
 
-        cartTotal.textContent = "RS:0";
+
+        if (cartTotal) {
+
+            cartTotal.textContent =
+                "RS:0";
+
+        }
 
         return;
 
@@ -878,10 +859,11 @@ function renderCart() {
     let subtotal = 0;
 
 
-    cart.forEach(function(item, index) {
+    cart.forEach(function(item) {
 
         const itemTotal =
-            item.price * item.quantity;
+            item.price *
+            item.quantity;
 
 
         subtotal += itemTotal;
@@ -894,7 +876,6 @@ function renderCart() {
                 <img
                     src="${item.image}"
                     alt="${item.name}"
-                    onerror="this.src='https://placehold.co/300x400?text=THREAD+%26+DIAL'"
                 >
 
 
@@ -904,12 +885,6 @@ function renderCart() {
                         ${item.name}
                     </h4>
 
-                    <div class="cart-variant">
-                        Size: ${item.size}
-                        |
-                        Color: ${item.color}
-                    </div>
-
                     <p>
                         ${formatPrice(item.price)}
                     </p>
@@ -918,7 +893,7 @@ function renderCart() {
                     <div class="quantity-controls">
 
                         <button
-                            onclick="decreaseQuantity(${index})"
+                            onclick="decreaseQuantity(${item.id})"
                         >
                             −
                         </button>
@@ -928,7 +903,7 @@ function renderCart() {
                         </span>
 
                         <button
-                            onclick="increaseQuantity(${index})"
+                            onclick="increaseQuantity(${item.id})"
                         >
                             +
                         </button>
@@ -938,7 +913,7 @@ function renderCart() {
 
                     <button
                         class="remove-item"
-                        onclick="removeFromCart(${index})"
+                        onclick="removeFromCart(${item.id})"
                     >
                         Remove
                     </button>
@@ -957,373 +932,14 @@ function renderCart() {
     });
 
 
-    cartTotal.textContent =
-        formatPrice(subtotal);
+    if (cartTotal) {
 
-}
-
-
-/* =====================================================
-   INCREASE
-===================================================== */
-
-function increaseQuantity(index) {
-
-    if (!cart[index]) {
-        return;
-    }
-
-
-    cart[index].quantity++;
-
-
-    saveCart();
-
-    updateCart();
-
-}
-
-
-/* =====================================================
-   DECREASE
-===================================================== */
-
-function decreaseQuantity(index) {
-
-    if (!cart[index]) {
-        return;
-    }
-
-
-    if (cart[index].quantity > 1) {
-
-        cart[index].quantity--;
-
-    } else {
-
-        cart.splice(index, 1);
-
-    }
-
-
-    saveCart();
-
-    updateCart();
-
-}
-
-
-/* =====================================================
-   REMOVE
-===================================================== */
-
-function removeFromCart(index) {
-
-    if (!cart[index]) {
-        return;
-    }
-
-
-    cart.splice(index, 1);
-
-
-    saveCart();
-
-    updateCart();
-
-}
-
-
-/* =====================================================
-   OPEN CART
-===================================================== */
-
-function openCart() {
-
-    cartDrawer.classList.add("show");
-
-    overlay.classList.add("show");
-
-    document.body.classList.add("no-scroll");
-
-}
-
-
-/* =====================================================
-   CLOSE CART
-===================================================== */
-
-function closeCartDrawer() {
-
-    cartDrawer.classList.remove("show");
-
-    overlay.classList.remove("show");
-
-    document.body.classList.remove("no-scroll");
-
-}
-
-
-/* =====================================================
-   PRODUCT MODAL
-===================================================== */
-
-function openProductModal(productId) {
-
-    const product =
-        products.find(function(product) {
-
-            return product.id === productId;
-
-        });
-
-
-    if (!product) {
-        return;
-    }
-
-
-    currentProduct = product;
-
-    selectedSize =
-        product.sizes[0] || "One Size";
-
-    selectedColor =
-        product.colors[0] || "Default";
-
-
-    modalProductImage.src =
-        product.image;
-
-    modalProductImage.alt =
-        product.name;
-
-
-    modalProductCategory.textContent =
-        product.type;
-
-
-    modalProductName.textContent =
-        product.name;
-
-
-    modalProductDescription.textContent =
-        product.description;
-
-
-    modalProductPrice.textContent =
-        formatPrice(product.price);
-
-
-    modalProductStock.textContent =
-        getStockText(product.stock);
-
-
-    modalProductStock.className =
-        "modal-stock " +
-        (
-            product.stock === "limited"
-                ? "limited"
-                : product.stock === "out"
-                    ? "out-stock"
-                    : "in-stock"
-        );
-
-
-    renderModalOptions();
-
-
-    modalAddToCart.disabled =
-        product.stock === "out";
-
-
-    modalAddToCart.textContent =
-        product.stock === "out"
-            ? "Out of Stock"
-            : "Add to Cart";
-
-
-    productModal.classList.add("show");
-
-    document.body.classList.add("no-scroll");
-
-}
-
-
-/* =====================================================
-   RENDER MODAL OPTIONS
-===================================================== */
-
-function renderModalOptions() {
-
-    if (!currentProduct) {
-        return;
-    }
-
-
-    /* SIZE */
-
-    modalSizes.innerHTML = "";
-
-
-    if (
-        currentProduct.sizes &&
-        currentProduct.sizes.length > 0
-    ) {
-
-        modalSizeContainer.style.display =
-            "block";
-
-
-        currentProduct.sizes.forEach(function(size) {
-
-            const button =
-                document.createElement("button");
-
-
-            button.className =
-                "option-button";
-
-
-            if (size === selectedSize) {
-
-                button.classList.add("selected");
-
-            }
-
-
-            button.textContent = size;
-
-
-            button.type = "button";
-
-
-            button.addEventListener(
-                "click",
-                function() {
-
-                    selectedSize = size;
-
-                    renderModalOptions();
-
-                }
-            );
-
-
-            modalSizes.appendChild(button);
-
-        });
-
-    } else {
-
-        modalSizeContainer.style.display =
-            "none";
-
-    }
-
-
-    /* COLOR */
-
-    modalColors.innerHTML = "";
-
-
-    if (
-        currentProduct.colors &&
-        currentProduct.colors.length > 0
-    ) {
-
-        modalColorContainer.style.display =
-            "block";
-
-
-        currentProduct.colors.forEach(function(color) {
-
-            const button =
-                document.createElement("button");
-
-
-            button.className =
-                "option-button";
-
-
-            if (color === selectedColor) {
-
-                button.classList.add("selected");
-
-            }
-
-
-            button.textContent = color;
-
-
-            button.type = "button";
-
-
-            button.addEventListener(
-                "click",
-                function() {
-
-                    selectedColor = color;
-
-                    renderModalOptions();
-
-                }
-            );
-
-
-            modalColors.appendChild(button);
-
-        });
-
-    } else {
-
-        modalColorContainer.style.display =
-            "none";
+        cartTotal.textContent =
+            formatPrice(subtotal);
 
     }
 
 }
-
-
-/* =====================================================
-   CLOSE PRODUCT MODAL
-===================================================== */
-
-function closeProductDetails() {
-
-    productModal.classList.remove("show");
-
-    document.body.classList.remove("no-scroll");
-
-    currentProduct = null;
-
-}
-
-
-/* =====================================================
-   MODAL ADD TO CART
-===================================================== */
-
-modalAddToCart.addEventListener(
-    "click",
-    function() {
-
-        if (!currentProduct) {
-            return;
-        }
-
-
-        addProductToCart(
-            currentProduct,
-            selectedSize,
-            selectedColor
-        );
-
-
-        closeProductDetails();
-
-    }
-);
 
 
 /* =====================================================
@@ -1342,7 +958,8 @@ function updateCheckoutSummary() {
         quantity += item.quantity;
 
         subtotal +=
-            item.price * item.quantity;
+            item.price *
+            item.quantity;
 
     });
 
@@ -1351,20 +968,204 @@ function updateCheckoutSummary() {
         subtotal + DELIVERY_FEE;
 
 
-    checkoutItemsCount.textContent =
-        quantity;
+    if (checkoutItemsCount) {
+
+        checkoutItemsCount.textContent =
+            quantity;
+
+    }
 
 
-    checkoutSubtotal.textContent =
-        formatPrice(subtotal);
+    if (checkoutSubtotal) {
+
+        checkoutSubtotal.textContent =
+            formatPrice(subtotal);
+
+    }
 
 
-    checkoutGrandTotal.textContent =
-        formatPrice(
-            cart.length > 0
-                ? total
-                : 0
+    if (checkoutGrandTotal) {
+
+        checkoutGrandTotal.textContent =
+            formatPrice(
+                cart.length > 0
+                    ? total
+                    : 0
+            );
+
+    }
+
+}
+
+
+/* =====================================================
+   INCREASE QUANTITY
+===================================================== */
+
+function increaseQuantity(productId) {
+
+    const item =
+        cart.find(function(item) {
+
+            return item.id === productId;
+
+        });
+
+
+    const product =
+        products.find(function(product) {
+
+            return product.id === productId;
+
+        });
+
+
+    if (!item || !product) {
+        return;
+    }
+
+
+    if (
+        item.quantity >=
+        product.stock
+    ) {
+
+        alert(
+            `Only ${product.stock} item(s) available.`
         );
+
+        return;
+
+    }
+
+
+    item.quantity++;
+
+    saveCart();
+
+    updateCart();
+
+}
+
+
+/* =====================================================
+   DECREASE QUANTITY
+===================================================== */
+
+function decreaseQuantity(productId) {
+
+    const item =
+        cart.find(function(item) {
+
+            return item.id === productId;
+
+        });
+
+
+    if (!item) {
+        return;
+    }
+
+
+    if (item.quantity > 1) {
+
+        item.quantity--;
+
+    } else {
+
+        cart =
+            cart.filter(function(item) {
+
+                return item.id !== productId;
+
+            });
+
+    }
+
+
+    saveCart();
+
+    updateCart();
+
+}
+
+
+/* =====================================================
+   REMOVE FROM CART
+===================================================== */
+
+function removeFromCart(productId) {
+
+    cart =
+        cart.filter(function(item) {
+
+            return item.id !== productId;
+
+        });
+
+
+    saveCart();
+
+    updateCart();
+
+}
+
+
+/* =====================================================
+   OPEN CART
+===================================================== */
+
+function openCart() {
+
+    if (!cartDrawer) {
+        return;
+    }
+
+
+    cartDrawer.classList.add("show");
+
+
+    if (overlay) {
+
+        overlay.classList.add("show");
+
+    }
+
+
+    document.body.classList.add(
+        "no-scroll"
+    );
+
+}
+
+
+/* =====================================================
+   CLOSE CART
+===================================================== */
+
+function closeCartDrawer() {
+
+    if (cartDrawer) {
+
+        cartDrawer.classList.remove(
+            "show"
+        );
+
+    }
+
+
+    if (overlay) {
+
+        overlay.classList.remove(
+            "show"
+        );
+
+    }
+
+
+    document.body.classList.remove(
+        "no-scroll"
+    );
 
 }
 
@@ -1377,7 +1178,9 @@ function openCheckout() {
 
     if (cart.length === 0) {
 
-        alert("Your cart is empty.");
+        alert(
+            "Your cart is empty."
+        );
 
         return;
 
@@ -1387,9 +1190,18 @@ function openCheckout() {
     updateCheckoutSummary();
 
 
-    checkoutModal.classList.add("show");
+    if (checkoutModal) {
 
-    document.body.classList.add("no-scroll");
+        checkoutModal.classList.add(
+            "show"
+        );
+
+    }
+
+
+    document.body.classList.add(
+        "no-scroll"
+    );
 
 }
 
@@ -1400,9 +1212,142 @@ function openCheckout() {
 
 function closeCheckoutModal() {
 
-    checkoutModal.classList.remove("show");
+    if (checkoutModal) {
 
-    document.body.classList.remove("no-scroll");
+        checkoutModal.classList.remove(
+            "show"
+        );
+
+    }
+
+
+    document.body.classList.remove(
+        "no-scroll"
+    );
+
+}
+
+
+/* =====================================================
+   PRODUCT MODAL
+===================================================== */
+
+function openProductModal(productId) {
+
+    const product =
+        products.find(function(product) {
+
+            return product.id === productId;
+
+        });
+
+
+    if (!product || !productModal) {
+        return;
+    }
+
+
+    currentModalProductId =
+        productId;
+
+
+    if (modalProductImage) {
+
+        modalProductImage.src =
+            product.image;
+
+        modalProductImage.alt =
+            product.name;
+
+    }
+
+
+    if (modalProductCategory) {
+
+        modalProductCategory.textContent =
+            product.type;
+
+    }
+
+
+    if (modalProductName) {
+
+        modalProductName.textContent =
+            product.name;
+
+    }
+
+
+    if (modalProductDescription) {
+
+        modalProductDescription.textContent =
+            product.description;
+
+    }
+
+
+    if (modalProductPrice) {
+
+        modalProductPrice.textContent =
+            formatPrice(product.price);
+
+    }
+
+
+    if (modalAddToCart) {
+
+        if (product.stock <= 0) {
+
+            modalAddToCart.textContent =
+                "Out of Stock";
+
+            modalAddToCart.disabled =
+                true;
+
+        } else {
+
+            modalAddToCart.textContent =
+                "Add to Cart";
+
+            modalAddToCart.disabled =
+                false;
+
+        }
+
+    }
+
+
+    productModal.classList.add(
+        "show"
+    );
+
+
+    document.body.classList.add(
+        "no-scroll"
+    );
+
+}
+
+
+/* =====================================================
+   CLOSE PRODUCT MODAL
+===================================================== */
+
+function closeProductDetails() {
+
+    if (!productModal) {
+        return;
+    }
+
+
+    productModal.classList.remove(
+        "show"
+    );
+
+
+    document.body.classList.remove(
+        "no-scroll"
+    );
 
 }
 
@@ -1411,131 +1356,191 @@ function closeCheckoutModal() {
    CART BUTTON
 ===================================================== */
 
-cartButton.addEventListener(
-    "click",
-    function() {
+if (cartButton) {
 
-        openCart();
+    cartButton.addEventListener(
+        "click",
+        function() {
 
-    }
-);
+            openCart();
+
+        }
+    );
+
+}
 
 
 /* =====================================================
    CLOSE CART
 ===================================================== */
 
-closeCart.addEventListener(
-    "click",
-    function() {
+if (closeCart) {
 
-        closeCartDrawer();
+    closeCart.addEventListener(
+        "click",
+        function() {
 
-    }
-);
+            closeCartDrawer();
+
+        }
+    );
+
+}
 
 
 /* =====================================================
    OVERLAY
 ===================================================== */
 
-overlay.addEventListener(
-    "click",
-    function() {
+if (overlay) {
 
-        closeCartDrawer();
+    overlay.addEventListener(
+        "click",
+        function() {
 
-    }
-);
+            closeCartDrawer();
+
+        }
+    );
+
+}
 
 
 /* =====================================================
-   CHECKOUT
+   CHECKOUT BUTTON
 ===================================================== */
 
-checkoutButton.addEventListener(
-    "click",
-    function() {
+if (checkoutButton) {
 
-        closeCartDrawer();
+    checkoutButton.addEventListener(
+        "click",
+        function() {
 
-        openCheckout();
+            if (cart.length === 0) {
 
-    }
-);
+                alert(
+                    "Your cart is empty."
+                );
+
+                return;
+
+            }
+
+
+            closeCartDrawer();
+
+            openCheckout();
+
+        }
+    );
+
+}
 
 
 /* =====================================================
    CLOSE CHECKOUT
 ===================================================== */
 
-closeCheckout.addEventListener(
-    "click",
-    function() {
+if (closeCheckout) {
 
-        closeCheckoutModal();
+    closeCheckout.addEventListener(
+        "click",
+        function() {
 
-    }
-);
+            closeCheckoutModal();
+
+        }
+    );
+
+}
 
 
 /* =====================================================
    CLOSE PRODUCT MODAL
 ===================================================== */
 
-closeProductModal.addEventListener(
-    "click",
-    function() {
+if (closeProductModal) {
 
-        closeProductDetails();
-
-    }
-);
-
-
-/* =====================================================
-   CLICK OUTSIDE PRODUCT MODAL
-===================================================== */
-
-productModal.addEventListener(
-    "click",
-    function(event) {
-
-        if (
-            event.target === productModal
-        ) {
+    closeProductModal.addEventListener(
+        "click",
+        function() {
 
             closeProductDetails();
 
         }
+    );
 
-    }
-);
-
-
-/* =====================================================
-   SEARCH
-===================================================== */
-
-productSearch.addEventListener(
-    "input",
-    function() {
-
-        refreshProducts();
-
-    }
-);
+}
 
 
 /* =====================================================
-   SORT
+   MODAL ADD TO CART
 ===================================================== */
 
-productSort.addEventListener(
-    "change",
-    function() {
+if (modalAddToCart) {
 
-        refreshProducts();
+    modalAddToCart.addEventListener(
+        "click",
+        function() {
+
+            if (
+                currentModalProductId !== null
+            ) {
+
+                addToCart(
+                    currentModalProductId
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   CLOSE PRODUCT MODAL ON BACKGROUND
+===================================================== */
+
+if (productModal) {
+
+    productModal.addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target ===
+                productModal
+            ) {
+
+                closeProductDetails();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ESCAPE KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeCartDrawer();
+
+            closeCheckoutModal();
+
+            closeProductDetails();
+
+        }
 
     }
 );
@@ -1568,16 +1573,18 @@ clothingFilters.forEach(function(button) {
             );
 
 
-            button.classList.add("active");
+            button.classList.add(
+                "active"
+            );
 
 
-            currentClothingFilter =
+            clothingFilter =
                 button.getAttribute(
                     "data-filter"
                 );
 
 
-            displayClothing();
+            refreshProducts();
 
         }
     );
@@ -1612,16 +1619,18 @@ watchFilters.forEach(function(button) {
             );
 
 
-            button.classList.add("active");
+            button.classList.add(
+                "active"
+            );
 
 
-            currentWatchFilter =
+            watchFilter =
                 button.getAttribute(
                     "data-filter"
                 );
 
 
-            displayWatches();
+            refreshProducts();
 
         }
     );
@@ -1630,339 +1639,470 @@ watchFilters.forEach(function(button) {
 
 
 /* =====================================================
+   SEARCH
+===================================================== */
+
+const searchInputs =
+    document.querySelectorAll(
+        "#searchInput, .search-input"
+    );
+
+
+searchInputs.forEach(function(input) {
+
+    input.addEventListener(
+        "input",
+        function() {
+
+            searchQuery =
+                input.value.trim();
+
+            refreshProducts();
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   SORT
+===================================================== */
+
+const sortSelect =
+    document.getElementById(
+        "sortSelect"
+    );
+
+
+if (sortSelect) {
+
+    sortSelect.addEventListener(
+        "change",
+        function() {
+
+            sortOption =
+                sortSelect.value;
+
+            refreshProducts();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   COLOR FILTER
+===================================================== */
+
+const colorSelect =
+    document.getElementById(
+        "colorFilter"
+    );
+
+
+if (colorSelect) {
+
+    colorSelect.addEventListener(
+        "change",
+        function() {
+
+            selectedColor =
+                colorSelect.value;
+
+            refreshProducts();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   SIZE FILTER
+===================================================== */
+
+const sizeSelect =
+    document.getElementById(
+        "sizeFilter"
+    );
+
+
+if (sizeSelect) {
+
+    sizeSelect.addEventListener(
+        "change",
+        function() {
+
+            selectedSize =
+                sizeSelect.value;
+
+            refreshProducts();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   STOCK FILTER
+===================================================== */
+
+const stockSelect =
+    document.getElementById(
+        "stockFilter"
+    );
+
+
+if (stockSelect) {
+
+    stockSelect.addEventListener(
+        "change",
+        function() {
+
+            stockFilter =
+                stockSelect.value;
+
+            refreshProducts();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
    ORDER FORM
 ===================================================== */
 
-orderForm.addEventListener(
-    "submit",
-    function(event) {
+if (orderForm) {
 
-        event.preventDefault();
+    orderForm.addEventListener(
+        "submit",
+        function(event) {
 
-
-        if (cart.length === 0) {
-
-            alert(
-                "Your cart is empty."
-            );
-
-            return;
-
-        }
+            event.preventDefault();
 
 
-        const customerName =
-            document
-                .getElementById("customerName")
-                .value
-                .trim();
+            if (cart.length === 0) {
+
+                alert(
+                    "Your cart is empty."
+                );
+
+                return;
+
+            }
 
 
-        const customerPhone =
-            document
-                .getElementById("customerPhone")
-                .value
-                .trim();
+            const customerName =
+                document.getElementById(
+                    "customerName"
+                ).value.trim();
 
 
-        const customerAddress =
-            document
-                .getElementById("customerAddress")
-                .value
-                .trim();
+            const customerPhone =
+                document.getElementById(
+                    "customerPhone"
+                ).value.trim();
 
 
-        const paymentMethod =
-            document
-                .getElementById("paymentMethod")
-                .value;
+            const customerAddress =
+                document.getElementById(
+                    "customerAddress"
+                ).value.trim();
 
 
-        let subtotal = 0;
+            const paymentMethod =
+                document.getElementById(
+                    "paymentMethod"
+                ).value;
 
 
-        cart.forEach(function(item) {
-
-            subtotal +=
-                item.price *
-                item.quantity;
-
-        });
+            let subtotal = 0;
 
 
-        const total =
-            subtotal + DELIVERY_FEE;
+            cart.forEach(function(item) {
+
+                subtotal +=
+                    item.price *
+                    item.quantity;
+
+            });
 
 
-        const orderNumber =
-            Math.floor(
-                10000 +
-                Math.random() * 90000
-            );
+            const total =
+                subtotal +
+                DELIVERY_FEE;
 
 
-        /* WHATSAPP MESSAGE */
-
-        let message =
-            "THREAD & DIAL ORDER\n\n";
-
-
-        message +=
-            "Order ID: TD-" +
-            orderNumber +
-            "\n\n";
+            const orderNumber =
+                Math.floor(
+                    10000 +
+                    Math.random() *
+                    90000
+                );
 
 
-        message +=
-            "CUSTOMER DETAILS\n";
+            /* WHATSAPP MESSAGE */
 
+            let message =
+                "THREAD & DIAL ORDER\n\n";
 
-        message +=
-            "Name: " +
-            customerName +
-            "\n";
-
-
-        message +=
-            "Phone: " +
-            customerPhone +
-            "\n";
-
-
-        message +=
-            "Address: " +
-            customerAddress +
-            "\n";
-
-
-        message +=
-            "Payment: " +
-            paymentMethod +
-            "\n\n";
-
-
-        message +=
-            "ORDER ITEMS\n";
-
-
-        cart.forEach(function(item) {
 
             message +=
-                item.name +
-                " | Size: " +
-                item.size +
-                " | Color: " +
-                item.color +
-                " | Qty: " +
-                item.quantity +
-                " | " +
-                formatPrice(
-                    item.price *
-                    item.quantity
-                ) +
+                "Order ID: TD-" +
+                orderNumber +
+                "\n\n";
+
+
+            message +=
+                "CUSTOMER DETAILS\n";
+
+
+            message +=
+                "Name: " +
+                customerName +
                 "\n";
 
-        });
+
+            message +=
+                "Phone: " +
+                customerPhone +
+                "\n";
 
 
-        message +=
-            "\nSubtotal: " +
-            formatPrice(subtotal);
+            message +=
+                "Address: " +
+                customerAddress +
+                "\n";
 
 
-        message +=
-            "\nDelivery: " +
-            formatPrice(DELIVERY_FEE);
+            message +=
+                "Payment: " +
+                paymentMethod +
+                "\n\n";
 
 
-        message +=
-            "\nTotal: " +
-            formatPrice(total);
+            message +=
+                "ORDER ITEMS\n";
 
 
-        const whatsappURL =
-            "https://wa.me/" +
-            WHATSAPP_NUMBER +
-            "?text=" +
-            encodeURIComponent(message);
+            cart.forEach(function(item) {
+
+                message +=
+                    item.name +
+                    " x " +
+                    item.quantity +
+                    " = " +
+                    formatPrice(
+                        item.price *
+                        item.quantity
+                    ) +
+                    "\n";
+
+            });
 
 
-        /* SUCCESS SCREEN */
+            message +=
+                "\nSubtotal: " +
+                formatPrice(subtotal);
 
-        checkoutContent.innerHTML = `
 
-            <div class="order-success">
+            message +=
+                "\nDelivery: " +
+                formatPrice(
+                    DELIVERY_FEE
+                );
 
-                <div class="success-icon">
-                    ✓
+
+            message +=
+                "\nTotal: " +
+                formatPrice(total);
+
+
+            const whatsappURL =
+                "https://wa.me/" +
+                WHATSAPP_NUMBER +
+                "?text=" +
+                encodeURIComponent(
+                    message
+                );
+
+
+            /* SUCCESS SCREEN */
+
+            checkoutContent.innerHTML = `
+
+                <div class="order-success">
+
+                    <div class="success-icon">
+                        ✓
+                    </div>
+
+                    <p class="eyebrow">
+                        ORDER RECEIVED
+                    </p>
+
+                    <h2>
+                        Thank You, ${customerName}!
+                    </h2>
+
+                    <p>
+                        Your order has been created successfully.
+                    </p>
+
+                    <p>
+                        Order ID:
+                        <strong>
+                            TD-${orderNumber}
+                        </strong>
+                    </p>
+
+                    <p>
+                        Total:
+                        <strong>
+                            ${formatPrice(total)}
+                        </strong>
+                    </p>
+
+
+                    <div class="success-actions">
+
+                        <a
+                            href="${whatsappURL}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="whatsapp-btn"
+                        >
+                            Send Order on WhatsApp
+                        </a>
+
+
+                        <button
+                            class="continue-btn"
+                            id="continueShopping"
+                        >
+                            Continue Shopping
+                        </button>
+
+                    </div>
+
                 </div>
 
-                <p class="eyebrow">
-                    ORDER RECEIVED
-                </p>
-
-                <h2>
-                    Thank You, ${customerName}!
-                </h2>
-
-                <p>
-                    Your order has been created successfully.
-                </p>
-
-                <p>
-                    Order ID:
-                    <strong>
-                        TD-${orderNumber}
-                    </strong>
-                </p>
-
-                <p>
-                    Total:
-                    <strong>
-                        ${formatPrice(total)}
-                    </strong>
-                </p>
+            `;
 
 
-                <div class="success-actions">
+            /* CLEAR CART */
 
-                    <a
-                        href="${whatsappURL}"
-                        target="_blank"
-                        class="whatsapp-btn"
-                    >
-                        Send Order on WhatsApp
-                    </a>
+            cart = [];
+
+            saveCart();
+
+            updateCart();
 
 
-                    <button
-                        class="continue-btn"
-                        id="continueShopping"
-                    >
-                        Continue Shopping
-                    </button>
+            /* CONTINUE SHOPPING */
 
-                </div>
-
-            </div>
-
-        `;
+            const continueShopping =
+                document.getElementById(
+                    "continueShopping"
+                );
 
 
-        /* CLEAR CART */
+            if (continueShopping) {
 
-        cart = [];
+                continueShopping.addEventListener(
+                    "click",
+                    function() {
 
-        saveCart();
+                        closeCheckoutModal();
 
-        updateCart();
+                        location.reload();
 
+                    }
+                );
 
-        /* CONTINUE */
+            }
 
-        document
-            .getElementById(
-                "continueShopping"
-            )
-            .addEventListener(
-                "click",
-                function() {
+        }
+    );
 
-                    closeCheckoutModal();
-
-                    location.reload();
-
-                }
-            );
-
-    }
-);
+}
 
 
 /* =====================================================
    MOBILE MENU
 ===================================================== */
 
-menuButton.addEventListener(
-    "click",
-    function() {
+if (menuButton && navLinks) {
 
-        navLinks.classList.toggle("show");
+    menuButton.addEventListener(
+        "click",
+        function() {
 
-    }
-);
+            navLinks.classList.toggle(
+                "show"
+            );
+
+        }
+    );
 
 
-/* =====================================================
-   CLOSE MOBILE MENU
-===================================================== */
+    navLinks
+        .querySelectorAll("a")
+        .forEach(function(link) {
 
-navLinks
-    .querySelectorAll("a")
-    .forEach(function(link) {
+            link.addEventListener(
+                "click",
+                function() {
 
-        link.addEventListener(
-            "click",
-            function() {
+                    navLinks.classList.remove(
+                        "show"
+                    );
 
-                navLinks.classList.remove(
-                    "show"
-                );
+                }
+            );
 
-            }
-        );
+        });
 
-    });
+}
 
 
 /* =====================================================
    NEWSLETTER
 ===================================================== */
 
-newsletterForm.addEventListener(
-    "submit",
-    function(event) {
+if (newsletterForm) {
 
-        event.preventDefault();
+    newsletterForm.addEventListener(
+        "submit",
+        function(event) {
 
-
-        newsletterMessage.textContent =
-            "Thank you for subscribing!";
+            event.preventDefault();
 
 
-        newsletterForm.reset();
+            if (newsletterMessage) {
 
-    }
-);
+                newsletterMessage.textContent =
+                    "Thank you for subscribing!";
+
+            }
 
 
-/* =====================================================
-   ESCAPE KEY
-===================================================== */
-
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (event.key === "Escape") {
-
-            closeCartDrawer();
-
-            closeCheckoutModal();
-
-            closeProductDetails();
+            newsletterForm.reset();
 
         }
+    );
 
-    }
-);
+}
 
 
 /* =====================================================
    INITIAL LOAD
 ===================================================== */
-
-loadCart();
 
 displayClothing();
 

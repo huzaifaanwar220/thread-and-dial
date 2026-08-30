@@ -2086,3 +2086,407 @@ footer {
     }
 
 }
+/* =====================================================
+   POLICY PAGES
+===================================================== */
+
+.policy-page {
+    min-height: 100vh;
+    padding: 150px 25px 100px;
+    background: #f7f7f7;
+}
+
+.policy-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 60px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+}
+
+.policy-container h1 {
+    margin-bottom: 25px;
+    font-size: clamp(40px, 6vw, 65px);
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.policy-intro {
+    margin-bottom: 50px;
+    color: #666;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.policy-container section {
+    margin-bottom: 35px;
+}
+
+.policy-container h2 {
+    margin-bottom: 12px;
+    font-size: 22px;
+}
+
+.policy-container section p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.policy-container .btn {
+    margin-top: 15px;
+}
+
+
+/* MOBILE POLICY */
+
+@media (max-width: 768px) {
+
+    .policy-page {
+        padding: 120px 15px 70px;
+    }
+
+    .policy-container {
+        padding: 35px 25px;
+    }
+
+    .policy-container h1 {
+        font-size: 42px;
+    }
+
+    .policy-intro {
+        font-size: 15px;
+    }
+
+    .policy-container h2 {
+        font-size: 19px;
+    }
+
+}
+/* =====================================================
+   404 ERROR PAGE
+===================================================== */
+
+.error-page {
+    min-height: calc(100vh - 160px);
+
+    padding: 160px 25px 100px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5f5f5 0%,
+            #ffffff 50%,
+            #eeeeee 100%
+        );
+}
+
+.error-content {
+    max-width: 700px;
+
+    margin: auto;
+}
+
+.error-content .eyebrow {
+    margin-bottom: 15px;
+}
+
+.error-number {
+    font-size: clamp(120px, 22vw, 250px);
+
+    font-weight: 900;
+
+    line-height: 0.9;
+
+    letter-spacing: -12px;
+
+    color: #111;
+
+    margin-bottom: 25px;
+}
+
+.error-content h1 {
+    font-size: clamp(32px, 5vw, 55px);
+
+    line-height: 1.1;
+
+    margin-bottom: 18px;
+
+    letter-spacing: -2px;
+}
+
+.error-content > p:not(.eyebrow) {
+    max-width: 520px;
+
+    margin: 0 auto 35px;
+
+    color: #777;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+.error-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+
+/* =====================================================
+   PROFESSIONAL FOOTER
+===================================================== */
+
+footer {
+    padding: 70px 7% 25px;
+
+    background: #0b0b0b;
+
+    color: #fff;
+
+    text-align: left;
+}
+
+.footer-grid {
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr 1fr;
+
+    gap: 50px;
+
+    padding-bottom: 55px;
+
+    border-bottom: 1px solid #292929;
+}
+
+.footer-brand {
+    max-width: 300px;
+}
+
+.footer-logo {
+    font-size: 22px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.footer-brand p {
+    margin-top: 8px;
+
+    color: #999;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    font-weight: 600;
+}
+
+.footer-brand span {
+    display: block;
+
+    margin-top: 20px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+.footer-column {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+.footer-column h3 {
+    margin-bottom: 18px;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+}
+
+.footer-column a {
+    margin-bottom: 11px;
+
+    color: #888;
+
+    font-size: 12px;
+
+    transition: 0.3s;
+}
+
+.footer-column a:hover {
+    color: #fff;
+
+    transform: translateX(3px);
+}
+
+.footer-bottom {
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding-top: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.footer-bottom span {
+    color: #666;
+
+    font-size: 10px;
+
+    letter-spacing: 0.5px;
+}
+
+.footer-bottom a {
+    color: #aaa;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.footer-bottom a:hover {
+    color: #fff;
+}
+
+
+/* =====================================================
+   RESPONSIVE FIXES
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .error-page {
+        min-height: calc(100vh - 130px);
+
+        padding: 130px 20px 70px;
+    }
+
+    .error-number {
+        font-size: clamp(100px, 30vw, 170px);
+
+        letter-spacing: -7px;
+    }
+
+    .error-content h1 {
+        font-size: 34px;
+    }
+
+    .error-content > p:not(.eyebrow) {
+        font-size: 14px;
+    }
+
+    .error-buttons {
+        flex-direction: column;
+
+        max-width: 350px;
+
+        margin: auto;
+    }
+
+    .error-buttons .btn {
+        width: 100%;
+    }
+
+    footer {
+        padding: 55px 25px 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 40px 25px;
+
+        padding-bottom: 40px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .error-page {
+        padding-top: 120px;
+    }
+
+    .error-number {
+        font-size: 110px;
+
+        letter-spacing: -5px;
+    }
+
+    .error-content h1 {
+        font-size: 30px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    .footer-column {
+        border-top: 1px solid #222;
+
+        padding-top: 25px;
+    }
+
+}
