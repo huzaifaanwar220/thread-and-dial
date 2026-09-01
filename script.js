@@ -210,6 +210,10 @@ let cart =
 
 let currentModalProductId = null;
 
+let selectedModalSize = null;
+
+let selectedModalColor = null;
+
 
 /* =====================================================
    CURRENT FILTERS
@@ -298,7 +302,9 @@ const newsletterMessage =
     document.getElementById("newsletterMessage");
 
 
-/* PRODUCT MODAL */
+/* =====================================================
+   PRODUCT MODAL ELEMENTS
+===================================================== */
 
 const productModal =
     document.getElementById("productModal");
@@ -320,6 +326,21 @@ const modalProductDescription =
 
 const modalProductPrice =
     document.getElementById("modalProductPrice");
+
+const modalProductStock =
+    document.getElementById("modalProductStock");
+
+const modalSizes =
+    document.getElementById("modalSizes");
+
+const modalColors =
+    document.getElementById("modalColors");
+
+const modalSizeContainer =
+    document.getElementById("modalSizeContainer");
+
+const modalColorContainer =
+    document.getElementById("modalColorContainer");
 
 const modalAddToCart =
     document.getElementById("modalAddToCart");
@@ -366,6 +387,8 @@ function createProductCard(product) {
                 ? `Only ${product.stock} left`
                 : "In Stock";
 
+    const sizesText =
+        product.sizes.join(", ");
 
     return `
 
@@ -388,7 +411,7 @@ function createProductCard(product) {
 
                 <button
                     class="product-add-btn"
-                    onclick="event.stopPropagation(); addToCart(${product.id})"
+                    onclick="event.stopPropagation(); quickAddToCart(${product.id})"
                     ${outOfStock ? "disabled" : ""}
                 >
                     ${outOfStock ? "Out of Stock" : "Add to Cart"}
@@ -411,7 +434,21 @@ function createProductCard(product) {
                     ${product.description}
                 </p>
 
-                <strong>
+                <div class="product-details">
+
+                    <p>
+                        <strong>Color:</strong>
+                        ${product.color}
+                    </p>
+
+                    <p>
+                        <strong>Sizes:</strong>
+                        ${sizesText}
+                    </p>
+
+                </div>
+
+                <strong class="product-price">
                     ${formatPrice(product.price)}
                 </strong>
 
@@ -516,9 +553,10 @@ function filterProducts(category) {
                     " " +
                     product.type +
                     " " +
-                    product.color
+                    product.color +
+                    " " +
+                    product.description
                 ).toLowerCase();
-
 
             if (
                 !searchText.includes(
@@ -594,7 +632,7 @@ function sortProducts(productList) {
 
 
 /* =====================================================
-   DISPLAY PRODUCTS
+   DISPLAY CLOTHING
 ===================================================== */
 
 function displayClothing() {
@@ -639,6 +677,10 @@ function displayClothing() {
 
 }
 
+
+/* =====================================================
+   DISPLAY WATCHES
+===================================================== */
 
 function displayWatches() {
 
@@ -697,6 +739,57 @@ function refreshProducts() {
 
 
 /* =====================================================
+   QUICK ADD TO CART
+===================================================== */
+
+function quickAddToCart(productId) {
+
+    const product =
+        products.find(function(product) {
+
+            return product.id === productId;
+
+        });
+
+
+    if (!product) {
+        return;
+    }
+
+
+    if (product.stock <= 0) {
+
+        alert(
+            "Sorry, this product is out of stock."
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Quick Add uses the first available
+       size and the product's color.
+    */
+
+    const defaultSize =
+        product.sizes[0];
+
+    const defaultColor =
+        product.color;
+
+
+    addProductVariantToCart(
+        product,
+        defaultSize,
+        defaultColor
+    );
+
+}
+
+
+/* =====================================================
    ADD TO CART
 ===================================================== */
 
@@ -726,10 +819,74 @@ function addToCart(productId) {
     }
 
 
+    const size =
+        selectedModalSize ||
+        product.sizes[0];
+
+    const color =
+        selectedModalColor ||
+        product.color;
+
+
+    addProductVariantToCart(
+        product,
+        size,
+        color
+    );
+
+}
+
+
+/* =====================================================
+   ADD PRODUCT VARIANT TO CART
+===================================================== */
+
+function addProductVariantToCart(
+    product,
+    size,
+    color
+) {
+
+    if (!product) {
+        return;
+    }
+
+
+    if (!size) {
+
+        alert(
+            "Please select a size."
+        );
+
+        return;
+
+    }
+
+
+    if (!color) {
+
+        alert(
+            "Please select a color."
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Check whether same product,
+       same size and same color already exist.
+    */
+
     const existing =
         cart.find(function(item) {
 
-            return item.id === productId;
+            return (
+                item.id === product.id &&
+                item.size === size &&
+                item.color === color
+            );
 
         });
 
@@ -764,6 +921,10 @@ function addToCart(productId) {
 
             image: product.image,
 
+            size: size,
+
+            color: color,
+
             quantity: 1
 
         });
@@ -774,6 +935,8 @@ function addToCart(productId) {
     saveCart();
 
     updateCart();
+
+    closeProductDetails();
 
     openCart();
 
@@ -869,6 +1032,18 @@ function renderCart() {
         subtotal += itemTotal;
 
 
+        /*
+           Backward compatibility for
+           old cart items saved in localStorage.
+        */
+
+        const displaySize =
+            item.size || "One Size";
+
+        const displayColor =
+            item.color || "Standard";
+
+
         cartItems.innerHTML += `
 
             <div class="cart-item">
@@ -889,11 +1064,27 @@ function renderCart() {
                         ${formatPrice(item.price)}
                     </p>
 
+                    <div class="cart-variant">
+
+                        <span>
+                            Size: ${displaySize}
+                        </span>
+
+                        <span>
+                            Color: ${displayColor}
+                        </span>
+
+                    </div>
+
 
                     <div class="quantity-controls">
 
                         <button
-                            onclick="decreaseQuantity(${item.id})"
+                            onclick="decreaseQuantity(
+                                ${item.id},
+                                '${escapeAttribute(displaySize)}',
+                                '${escapeAttribute(displayColor)}'
+                            )"
                         >
                             −
                         </button>
@@ -903,7 +1094,11 @@ function renderCart() {
                         </span>
 
                         <button
-                            onclick="increaseQuantity(${item.id})"
+                            onclick="increaseQuantity(
+                                ${item.id},
+                                '${escapeAttribute(displaySize)}',
+                                '${escapeAttribute(displayColor)}'
+                            )"
                         >
                             +
                         </button>
@@ -913,7 +1108,11 @@ function renderCart() {
 
                     <button
                         class="remove-item"
-                        onclick="removeFromCart(${item.id})"
+                        onclick="removeFromCart(
+                            ${item.id},
+                            '${escapeAttribute(displaySize)}',
+                            '${escapeAttribute(displayColor)}'
+                        )"
                     >
                         Remove
                     </button>
@@ -938,6 +1137,18 @@ function renderCart() {
             formatPrice(subtotal);
 
     }
+
+}
+
+
+/* =====================================================
+   ESCAPE ATTRIBUTE
+===================================================== */
+
+function escapeAttribute(value) {
+
+    return String(value)
+        .replace(/'/g, "\\'");
 
 }
 
@@ -1002,12 +1213,20 @@ function updateCheckoutSummary() {
    INCREASE QUANTITY
 ===================================================== */
 
-function increaseQuantity(productId) {
+function increaseQuantity(
+    productId,
+    size,
+    color
+) {
 
     const item =
         cart.find(function(item) {
 
-            return item.id === productId;
+            return (
+                item.id === productId &&
+                (item.size || "One Size") === size &&
+                (item.color || "Standard") === color
+            );
 
         });
 
@@ -1052,12 +1271,20 @@ function increaseQuantity(productId) {
    DECREASE QUANTITY
 ===================================================== */
 
-function decreaseQuantity(productId) {
+function decreaseQuantity(
+    productId,
+    size,
+    color
+) {
 
     const item =
         cart.find(function(item) {
 
-            return item.id === productId;
+            return (
+                item.id === productId &&
+                (item.size || "One Size") === size &&
+                (item.color || "Standard") === color
+            );
 
         });
 
@@ -1076,7 +1303,11 @@ function decreaseQuantity(productId) {
         cart =
             cart.filter(function(item) {
 
-                return item.id !== productId;
+                return !(
+                    item.id === productId &&
+                    (item.size || "One Size") === size &&
+                    (item.color || "Standard") === color
+                );
 
             });
 
@@ -1094,12 +1325,20 @@ function decreaseQuantity(productId) {
    REMOVE FROM CART
 ===================================================== */
 
-function removeFromCart(productId) {
+function removeFromCart(
+    productId,
+    size,
+    color
+) {
 
     cart =
         cart.filter(function(item) {
 
-            return item.id !== productId;
+            return !(
+                item.id === productId &&
+                (item.size || "One Size") === size &&
+                (item.color || "Standard") === color
+            );
 
         });
 
@@ -1229,7 +1468,7 @@ function closeCheckoutModal() {
 
 
 /* =====================================================
-   PRODUCT MODAL
+   OPEN PRODUCT MODAL
 ===================================================== */
 
 function openProductModal(productId) {
@@ -1251,6 +1490,18 @@ function openProductModal(productId) {
         productId;
 
 
+    /*
+       Reset selections every time
+       modal is opened.
+    */
+
+    selectedModalSize = null;
+
+    selectedModalColor = null;
+
+
+    /* IMAGE */
+
     if (modalProductImage) {
 
         modalProductImage.src =
@@ -1262,6 +1513,8 @@ function openProductModal(productId) {
     }
 
 
+    /* CATEGORY */
+
     if (modalProductCategory) {
 
         modalProductCategory.textContent =
@@ -1269,6 +1522,8 @@ function openProductModal(productId) {
 
     }
 
+
+    /* NAME */
 
     if (modalProductName) {
 
@@ -1278,6 +1533,8 @@ function openProductModal(productId) {
     }
 
 
+    /* DESCRIPTION */
+
     if (modalProductDescription) {
 
         modalProductDescription.textContent =
@@ -1286,6 +1543,8 @@ function openProductModal(productId) {
     }
 
 
+    /* PRICE */
+
     if (modalProductPrice) {
 
         modalProductPrice.textContent =
@@ -1293,6 +1552,186 @@ function openProductModal(productId) {
 
     }
 
+
+    /* STOCK */
+
+    if (modalProductStock) {
+
+        if (product.stock <= 0) {
+
+            modalProductStock.textContent =
+                "Out of Stock";
+
+        } else {
+
+            modalProductStock.textContent =
+                `${product.stock} items available`;
+
+        }
+
+    }
+
+
+    /* =================================================
+       SIZE BUTTONS
+    ================================================= */
+
+    if (modalSizes) {
+
+        modalSizes.innerHTML = "";
+
+
+        if (
+            product.sizes &&
+            product.sizes.length > 0
+        ) {
+
+            product.sizes.forEach(function(size) {
+
+                const button =
+                    document.createElement("button");
+
+                button.type = "button";
+
+                button.className =
+                    "option-btn";
+
+                button.textContent =
+                    size;
+
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+                        selectedModalSize =
+                            size;
+
+
+                        modalSizes
+                            .querySelectorAll(".option-btn")
+                            .forEach(function(btn) {
+
+                                btn.classList.remove(
+                                    "active"
+                                );
+
+                            });
+
+
+                        button.classList.add(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                modalSizes.appendChild(
+                    button
+                );
+
+            });
+
+
+            if (modalSizeContainer) {
+
+                modalSizeContainer.style.display =
+                    "block";
+
+            }
+
+        } else {
+
+            if (modalSizeContainer) {
+
+                modalSizeContainer.style.display =
+                    "none";
+
+            }
+
+        }
+
+    }
+
+
+    /* =================================================
+       COLOR BUTTON
+    ================================================= */
+
+    if (modalColors) {
+
+        modalColors.innerHTML = "";
+
+
+        if (product.color) {
+
+            const button =
+                document.createElement("button");
+
+            button.type = "button";
+
+            button.className =
+                "option-btn";
+
+            button.textContent =
+                product.color;
+
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    selectedModalColor =
+                        product.color;
+
+
+                    modalColors
+                        .querySelectorAll(".option-btn")
+                        .forEach(function(btn) {
+
+                            btn.classList.remove(
+                                "active"
+                            );
+
+                        });
+
+
+                    button.classList.add(
+                        "active"
+                    );
+
+                }
+            );
+
+
+            modalColors.appendChild(
+                button
+            );
+
+
+            if (modalColorContainer) {
+
+                modalColorContainer.style.display =
+                    "block";
+
+            }
+
+        } else {
+
+            if (modalColorContainer) {
+
+                modalColorContainer.style.display =
+                    "none";
+
+            }
+
+        }
+
+    }
+
+
+    /* ADD TO CART BUTTON */
 
     if (modalAddToCart) {
 
@@ -1347,6 +1786,98 @@ function closeProductDetails() {
 
     document.body.classList.remove(
         "no-scroll"
+    );
+
+
+    currentModalProductId =
+        null;
+
+    selectedModalSize =
+        null;
+
+    selectedModalColor =
+        null;
+
+}
+
+
+/* =====================================================
+   MODAL ADD TO CART
+===================================================== */
+
+if (modalAddToCart) {
+
+    modalAddToCart.addEventListener(
+        "click",
+        function() {
+
+            if (
+                currentModalProductId === null
+            ) {
+                return;
+            }
+
+
+            const product =
+                products.find(function(product) {
+
+                    return (
+                        product.id ===
+                        currentModalProductId
+                    );
+
+                });
+
+
+            if (!product) {
+                return;
+            }
+
+
+            /*
+               Require size selection.
+            */
+
+            if (
+                product.sizes &&
+                product.sizes.length > 0 &&
+                !selectedModalSize
+            ) {
+
+                alert(
+                    "Please select a size."
+                );
+
+                return;
+
+            }
+
+
+            /*
+               Require color selection.
+            */
+
+            if (
+                product.color &&
+                !selectedModalColor
+            ) {
+
+                alert(
+                    "Please select a color."
+                );
+
+                return;
+
+            }
+
+
+            addProductVariantToCart(
+                product,
+                selectedModalSize,
+                selectedModalColor
+            );
+
+        }
     );
 
 }
@@ -1466,32 +1997,6 @@ if (closeProductModal) {
         function() {
 
             closeProductDetails();
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   MODAL ADD TO CART
-===================================================== */
-
-if (modalAddToCart) {
-
-    modalAddToCart.addEventListener(
-        "click",
-        function() {
-
-            if (
-                currentModalProductId !== null
-            ) {
-
-                addToCart(
-                    currentModalProductId
-                );
-
-            }
 
         }
     );
@@ -1642,47 +2147,20 @@ watchFilters.forEach(function(button) {
    SEARCH
 ===================================================== */
 
-const searchInputs =
-    document.querySelectorAll(
-        "#searchInput, .search-input"
+const searchInput =
+    document.getElementById(
+        "productSearch"
     );
 
 
-searchInputs.forEach(function(input) {
+if (searchInput) {
 
-    input.addEventListener(
+    searchInput.addEventListener(
         "input",
         function() {
 
             searchQuery =
-                input.value.trim();
-
-            refreshProducts();
-
-        }
-    );
-
-});
-
-
-/* =====================================================
-   SORT
-===================================================== */
-
-const sortSelect =
-    document.getElementById(
-        "sortSelect"
-    );
-
-
-if (sortSelect) {
-
-    sortSelect.addEventListener(
-        "change",
-        function() {
-
-            sortOption =
-                sortSelect.value;
+                searchInput.value.trim();
 
             refreshProducts();
 
@@ -1693,7 +2171,55 @@ if (sortSelect) {
 
 
 /* =====================================================
-   COLOR FILTER
+   SORT
+===================================================== */
+
+const sortSelect =
+    document.getElementById(
+        "productSort"
+    );
+
+
+if (sortSelect) {
+
+    sortSelect.addEventListener(
+        "change",
+        function() {
+
+            const value =
+                sortSelect.value;
+
+
+            if (value === "low-high") {
+
+                sortOption =
+                    "price-low";
+
+            } else if (
+                value === "high-low"
+            ) {
+
+                sortOption =
+                    "price-high";
+
+            } else {
+
+                sortOption =
+                    "default";
+
+            }
+
+
+            refreshProducts();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   OPTIONAL COLOR FILTER
 ===================================================== */
 
 const colorSelect =
@@ -1720,7 +2246,7 @@ if (colorSelect) {
 
 
 /* =====================================================
-   SIZE FILTER
+   OPTIONAL SIZE FILTER
 ===================================================== */
 
 const sizeSelect =
@@ -1747,7 +2273,7 @@ if (sizeSelect) {
 
 
 /* =====================================================
-   STOCK FILTER
+   OPTIONAL STOCK FILTER
 ===================================================== */
 
 const stockSelect =
@@ -1846,7 +2372,9 @@ if (orderForm) {
                 );
 
 
-            /* WHATSAPP MESSAGE */
+            /* =================================================
+               WHATSAPP MESSAGE
+            ================================================= */
 
             let message =
                 "THREAD & DIAL ORDER\n\n";
@@ -1887,27 +2415,54 @@ if (orderForm) {
 
 
             message +=
-                "ORDER ITEMS\n";
+                "ORDER ITEMS\n\n";
 
 
             cart.forEach(function(item) {
 
+                const displaySize =
+                    item.size || "One Size";
+
+                const displayColor =
+                    item.color || "Standard";
+
+
                 message +=
                     item.name +
-                    " x " +
+                    "\n";
+
+
+                message +=
+                    "Size: " +
+                    displaySize +
+                    "\n";
+
+
+                message +=
+                    "Color: " +
+                    displayColor +
+                    "\n";
+
+
+                message +=
+                    "Quantity: " +
                     item.quantity +
-                    " = " +
+                    "\n";
+
+
+                message +=
+                    "Price: " +
                     formatPrice(
                         item.price *
                         item.quantity
                     ) +
-                    "\n";
+                    "\n\n";
 
             });
 
 
             message +=
-                "\nSubtotal: " +
+                "Subtotal: " +
                 formatPrice(subtotal);
 
 
@@ -1932,7 +2487,9 @@ if (orderForm) {
                 );
 
 
-            /* SUCCESS SCREEN */
+            /* =================================================
+               SUCCESS SCREEN
+            ================================================= */
 
             checkoutContent.innerHTML = `
 
@@ -1995,7 +2552,9 @@ if (orderForm) {
             `;
 
 
-            /* CLEAR CART */
+            /* =================================================
+               CLEAR CART
+            ================================================= */
 
             cart = [];
 
@@ -2004,7 +2563,9 @@ if (orderForm) {
             updateCart();
 
 
-            /* CONTINUE SHOPPING */
+            /* =================================================
+               CONTINUE SHOPPING
+            ================================================= */
 
             const continueShopping =
                 document.getElementById(

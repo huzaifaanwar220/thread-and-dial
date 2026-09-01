@@ -2490,3 +2490,84 @@ footer {
     }
 
 }
+/* =====================================================
+   PRODUCT OPTIONS
+===================================================== */
+
+.product-options {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #eee;
+}
+
+.product-options p {
+    margin: 5px 0;
+    color: #777;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.product-options strong {
+    color: #111;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+/* =====================================================
+   PRODUCT MODAL OPTIONS
+===================================================== */
+
+.option-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.option-btn {
+    min-width: 55px;
+    padding: 12px 18px;
+    border: 1px solid #d8d8d8;
+    background: #fff;
+    color: #111;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+    border-color: #111;
+}
+
+.option-btn.active {
+    background: #111;
+    color: #fff;
+    border-color: #111;
+}
+
+.product-details {
+    margin: 14px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.product-details p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.product-details strong {
+    color: #111;
+}
+
+.cart-variant {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: 8px 0;
+    font-size: 13px;
+    color: #666;
+}
